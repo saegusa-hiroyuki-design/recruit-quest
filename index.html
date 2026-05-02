@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>転職クエスト</title>
+    <style>
+        html, body, canvas {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="glcanvas"></canvas>
+    <!-- macroquadの公式jsを読み込む -->
+    <script src="https://not-fl3.github.io/miniquad-samples/mq_js_bundle.js"></script>
+    <script>
+        load("./target/wasm32-unknown-unknown/release/recruit_quest.wasm");
+    </script>
+</body>
+</html>
