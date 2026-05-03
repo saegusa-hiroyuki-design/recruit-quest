@@ -16,10 +16,18 @@
 </head>
 <body>
     <canvas id="glcanvas"></canvas>
-    <!-- バージョン0.4以降に対応した公式の読み込みスクリプト -->
+    <!-- 先にJSを読み込みます -->
     <script src="https://macroquad.rs/js/mq_js_bundle.js"></script>
     <script>
-        load("recruit_quest.wasm");
+        // JSの読み込み完了を待ってから実行する仕組みです
+        async function start() {
+            // もし load がまだ定義されていなければ、少し待ちます
+            while (typeof load !== 'function') {
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+            load("recruit_quest.wasm");
+        }
+        start();
     </script>
 </body>
 </html>
